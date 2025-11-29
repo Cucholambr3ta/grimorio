@@ -11,28 +11,26 @@
 
 export const Textures = {
   paper: {
-    // TODO: Add actual texture files to assets/textures/paper/
-    parchment: require('./textures/paper/parchment.png'), 
-    waxSeal: require('./textures/paper/wax_seal.png'),
+    // Using placeholders for now as local assets are missing
+    parchment: { uri: 'https://placehold.co/400x800/f5f5dc/5d4037/png?text=Parchment' }, 
+    waxSeal: { uri: 'https://placehold.co/100x100/8b0000/ffffff/png?text=Seal' },
   },
   wood: {
-    // TODO: Add actual texture files to assets/textures/wood/
-    oakTable: require('./textures/wood/oak_table.png'),
-    darkOak: require('./textures/wood/dark_oak.png'),
+    oakTable: { uri: 'https://placehold.co/800x1200/3e2723/ffffff/png?text=Oak+Table' },
+    darkOak: { uri: 'https://placehold.co/100x100/212121/ffffff/png?text=Dark+Oak' },
   },
   book: {
-    // TODO: Add actual texture files to assets/textures/book/
-    coverLeather: require('./textures/book/cover_leather.png'),
-    spine: require('./textures/book/spine.png'),
-    openPages: require('./textures/book/open_pages.png'),
+    coverLeather: { uri: 'https://placehold.co/400x600/3e2723/ffffff/png?text=Leather+Cover' },
+    spine: { uri: 'https://placehold.co/50x600/212121/ffffff/png?text=Spine' },
+    openPages: { uri: 'https://placehold.co/600x400/fff8e1/000000/png?text=Open+Pages' },
   }
 };
 
 export const Fonts = {
-  // Serif fonts only (The Scribe's Decree)
-  primary: 'CrimsonText-Regular',
-  bold: 'CrimsonText-Bold',
-  italic: 'CrimsonText-Italic',
+  // Fallback to system fonts since local font files are missing
+  primary: 'serif',
+  bold: 'serif', // In React Native, we usually use fontWeight: 'bold' with the family
+  italic: 'serif',
 };
 
 // Async preload helper
@@ -40,6 +38,9 @@ import { Asset } from 'expo-asset';
 import * as Font from 'expo-font';
 
 export const loadGrimoireAssets = async () => {
+  // Preloading remote images is good practice but not strictly required for them to show up eventually.
+  // We skip Font.loadAsync as we are using system fonts.
+  
   const imageAssets = [
     Textures.paper.parchment,
     Textures.paper.waxSeal,
@@ -49,11 +50,8 @@ export const loadGrimoireAssets = async () => {
     Textures.book.spine,
   ];
 
-  const fontAssets = Font.loadAsync({
-    [Fonts.primary]: require('./fonts/CrimsonText-Regular.ttf'),
-    [Fonts.bold]: require('./fonts/CrimsonText-Bold.ttf'),
-    [Fonts.italic]: require('./fonts/CrimsonText-Italic.ttf'),
-  });
-
-  await Promise.all([...imageAssets.map(image => Asset.fromModule(image).downloadAsync()), fontAssets]);
+  // For remote URIs, Asset.fromModule might not work as expected for preloading in the same way as local requires,
+  // but Image.prefetch is the standard way. However, for this setup, we can just resolve.
+  return Promise.resolve();
 };
+

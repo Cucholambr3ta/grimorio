@@ -55,7 +55,26 @@ Para forjar este grimorio, hemos utilizado las herramientas más potentes del re
 
 ---
 
-## 🕯️ Únete a la Orden
+## � El Despliegue (Deployment)
+
+Para manifestar este artefacto en el plano terrenal (Local) o en el éter (Vercel), sigue estos conjuros:
+
+### ⚡ Invocación Local (Web)
+Para visualizar el grimorio en tu espejo mágico (Navegador):
+```bash
+npm run web
+```
+
+### ☁️ El Nexo (Vercel)
+Para proyectar tu creación a través de la red mágica:
+1.  Sube tu código a **GitHub**.
+2.  Conecta tu repositorio con **Vercel**.
+3.  El sistema detectará automáticamente el pergamino `vercel.json`.
+4.  ¡Observa cómo tu creación cobra vida en la nube!
+
+---
+
+## �🕯️ Únete a la Orden
 
 ¿Sientes el llamado? ¿Estás listo para dejar atrás los dashboards aburridos y abrazar la interfaz como juego?
 
