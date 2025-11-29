@@ -1,5 +1,7 @@
 # 📔 Crónicas de un Código Encantado: El Diario del Desarrollador
 
+# Capítulo 1: El Génesis
+
 ## Día 0: La Llamada a la Aventura
 
 Todo comenzó con una idea simple, casi susurrada por las musas del silicio: *"¿Y si programar no se sintiera como trabajar en una hoja de cálculo, sino como jugar un RPG?"*.
@@ -36,7 +38,7 @@ Aquí aprendí que la magia tiene un precio: el rendimiento. Renderizar listas d
 
 Tuve que optimizar. "Virtualización", susurró el viento. Aprendí a renderizar solo lo que el ojo ve. El scroll se volvió suave como la seda de araña.
 
-## Día 7: El Gran Despliegue (La Batalla Final)
+## Día 7: El Gran Despliegue (La Batalla Final del Inicio)
 
 Llegó el día. El cliente (o sea, yo mismo del futuro) quería ver la app "en vivo". Y no solo en el móvil, sino en la web.
 *"¡Pero si esto es React Native!"*, protestó mi cerebro.
@@ -55,15 +57,59 @@ Pero recordé las viejas escrituras (la documentación). Creé los archivos de c
 Corrí el comando de nuevo. La barra de progreso avanzó... 50%... 80%... 100%.
 **Done.**
 
-## Epílogo: La Calma
+---
 
-Ahora, veo mi creación desplegada. No es perfecta. A veces las texturas tardan en cargar, y el código tiene algunos parches que espero que nadie vea. Pero funciona.
-He convertido líneas de texto en un mundo. He sufrido, he aprendido y, lo más importante, he sobrevivido para contarlo.
+# Capítulo 2: La Larga Noche (Días 8-28)
 
-Si estás leyendo esto, tú también eres parte de la aventura. Toma tu teclado, Mago del Código. Tu propia historia está a punto de comenzar.
+## Día 8: La Calma Antes de la Tormenta
+
+Creí que lo peor había pasado. El despliegue funcionaba, la interfaz brillaba. Me senté en mi silla, contemplando mi creación con la arrogancia de un dios menor.
+*"Solo falta conectar el backend"*, pensé. *"Un par de días, a lo sumo"*.
+
+Si pudiera viajar en el tiempo, me abofetearía.
+
+## Día 12: El Laberinto de Supabase
+
+Entrar en la base de datos fue como descender a una mazmorra sin antorchas. Las tablas se burlaban de mí. Las relaciones de claves foráneas eran trampas mortales.
+Intenté conectar el `GrimoireContext`. Fallo.
+Intenté autenticar un usuario. Fallo.
+Intenté simplemente leer una fila. **Permission Denied (RLS Policy Violation).**
+
+Pasé tres días enteros leyendo pergaminos de Row Level Security. Mis ojos ardían. Soñaba con sentencias SQL. *"¿Por qué el usuario anónimo no puede ver las misiones?"*, le gritaba a la pantalla a las 3 AM.
+
+## Día 18: La Guerra de los Tests
+
+Cuando por fin logré que los datos fluyeran, decidí ser responsable. *"Hagamos pruebas unitarias"*, dije. *"Para que sea robusto"*.
+
+Fue una masacre.
+Jest y Expo no se hablaban. Reanimated lanzaba errores crípticos sobre hilos de UI que no existían en el entorno de pruebas.
+`SyntaxError: Cannot use import statement outside a module`.
+Esa frase... esa maldita frase se grabó en mis pesadillas.
+
+Tuve que mockear todo. Mockeé las fuentes. Mockeé las imágenes. Mockeé hasta mi propia cordura. Al final, logré que las pruebas de lógica pasaran (7 de 7, un número sagrado), pero las pruebas de componentes quedaron marcadas por la guerra, funcionales pero cicatrizadas.
+
+## Día 25: El Silencio
+
+Hubo días en los que no escribí ni una línea de código. Solo miraba la pantalla, paralizado por la complejidad de lo que yo mismo había construido. La duda se instaló. *"¿Vale la pena?"* *"¿A quién le importa un RPG para programadores?"*.
+
+Pero entonces, abrí la app en mi teléfono. Vi el sello de cera romperse. Escuché el (imaginario) sonido de las páginas pasando. Y recordé por qué empecé.
+
+## Día 28: Un Respiro en la Cima
+
+Hoy, 20 días después de iniciar esta segunda etapa, estoy descansando.
+El sistema de misiones funciona. La base de datos responde. Los tests (la mayoría) están en verde.
+He sobrevivido a la integración.
+
+Estoy sentado junto a la fogata, limpiando mi espada (teclado). El fuego crepita. Me siento fuerte, más sabio que hace un mes.
+Pero miro hacia el horizonte y lo veo.
+Las montañas de la **Optimización de Audio**. Los picos nevados del **Despliegue en Producción**.
+Y más allá, oculto en la niebla... el **Feedback de los Usuarios Reales**.
+
+La aventura no ha terminado. Apenas estamos en el intermedio.
+Descansaré esta noche. Pero mañana... mañana marchamos de nuevo.
 
 ---
-*Basado en hechos reales (y algunos bugs dramatizados).*
+*Continuará...*
 
 **— Cucholambreta**
 

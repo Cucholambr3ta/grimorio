@@ -1,17 +1,14 @@
 // src/shared/assets/AssetManifest.ts
+import { Asset } from 'expo-asset';
+import * as Font from 'expo-font';
 
 /**
  * THE SCRIBE'S VAULT
  * Central registry of all textures and organic assets.
- * 
- * Usage:
- * import { Textures } from '@/shared/assets/AssetManifest';
- * <Image source={Textures.paper.parchment} />
  */
 
 export const Textures = {
   paper: {
-    // Using placeholders for now as local assets are missing
     parchment: { uri: 'https://placehold.co/400x800/f5f5dc/5d4037/png?text=Parchment' }, 
     waxSeal: { uri: 'https://placehold.co/100x100/8b0000/ffffff/png?text=Seal' },
   },
@@ -27,31 +24,23 @@ export const Textures = {
 };
 
 export const Fonts = {
-  // Fallback to system fonts since local font files are missing
   primary: 'serif',
-  bold: 'serif', // In React Native, we usually use fontWeight: 'bold' with the family
+  bold: 'serif',
   italic: 'serif',
 };
 
-// Async preload helper
-import { Asset } from 'expo-asset';
-import * as Font from 'expo-font';
+export const Sounds = {
+  music: {
+    // mainTheme: require('./audio/music/main_theme.mp3'),
+  },
+  sfx: {
+    // pageTurn: require('./audio/sfx/page_turn.mp3'),
+    // questComplete: require('./audio/sfx/quest_complete.mp3'),
+  }
+};
 
 export const loadGrimoireAssets = async () => {
   // Preloading remote images is good practice but not strictly required for them to show up eventually.
   // We skip Font.loadAsync as we are using system fonts.
-  
-  const imageAssets = [
-    Textures.paper.parchment,
-    Textures.paper.waxSeal,
-    Textures.wood.oakTable,
-    Textures.wood.darkOak,
-    Textures.book.coverLeather,
-    Textures.book.spine,
-  ];
-
-  // For remote URIs, Asset.fromModule might not work as expected for preloading in the same way as local requires,
-  // but Image.prefetch is the standard way. However, for this setup, we can just resolve.
   return Promise.resolve();
 };
-

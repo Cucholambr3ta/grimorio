@@ -1,21 +1,18 @@
 import React, { useState } from 'react';
-import { FlatList, StyleSheet, View, Alert } from 'react-native';
+import { FlatList, StyleSheet, View, Alert, RefreshControl } from 'react-native';
 import { GrimoireLayout } from '../../../shared/ui/GrimoireLayout';
-import { MOCK_QUESTS } from '../data/MockQuests';
+// import { MOCK_QUESTS } from '../data/MockQuests'; // Deprecated
 import { QuestItem } from '../components/QuestItem';
 import { QuestDetailModal } from '../components/QuestDetailModal';
 import { Quest } from '../domain/Quest';
 import { useGrimoire } from '../../grimoire/context/GrimoireContext';
 
 export const QuestBoard = () => {
-  // In a real app, we would fetch quests from an API.
-  // Here we filter out quests that are already active or completed.
-  const { activeQuests, completedQuests, acceptQuest } = useGrimoire();
+  // Now we fetch quests from the Grimoire (Supabase)
+  const { allQuests, activeQuests, completedQuests, acceptQuest, isLoading, refreshGrimoire } = useGrimoire();
   
   // Filter logic: Show available quests (not in active or completed)
-  // For simplicity in this demo, we just show all MOCK_QUESTS but change their status visually if we wanted.
-  // But let's do it right:
-  const availableQuests = MOCK_QUESTS.filter(q => 
+  const availableQuests = allQuests.filter(q => 
     !activeQuests.find(aq => aq.id === q.id) && 
     !completedQuests.find(cq => cq.id === q.id)
   );
@@ -28,7 +25,7 @@ export const QuestBoard = () => {
 
   const handleAcceptQuest = (quest: Quest) => {
     acceptQuest(quest);
-    Alert.alert("Quest Accepted", `You have undertaken: ${quest.title}`);
+    // Alert is handled in context, but we can close modal here
     setSelectedQuest(null);
   };
 
@@ -42,6 +39,9 @@ export const QuestBoard = () => {
         )}
         contentContainerStyle={styles.listContent}
         showsVerticalScrollIndicator={false}
+        refreshControl={
+          <RefreshControl refreshing={isLoading} onRefresh={refreshGrimoire} tintColor="#5d4037" />
+        }
       />
       
       <QuestDetailModal 

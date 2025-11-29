@@ -41,3 +41,12 @@ ios/
 
 # TypeScript
 *.tsbuildinfo
+
+# Security
+contraseñas.txt
+
+# Testing
+coverage/
+
+# Documentation
+GUIA_AUDIO.md

@@ -28,12 +28,34 @@ Para despertar el Grimorio en tu entorno local:
     *   Presiona `a` para abrir en Android Emulator.
     *   Presiona `i` para abrir en iOS Simulator.
 
-4.  **Versión Web**:
-    Si prefieres invocar el portal en tu navegador:
     ```bash
     npm run web
     ```
     O presiona `w` en la terminal después de `npm start`.
+
+## 🔮 Configuración del Entorno (Environment)
+
+Antes de invocar la aplicación, necesitas configurar las energías místicas (Variables de Entorno).
+
+1.  **Supabase**:
+    Crea un archivo `.env` en la raíz del proyecto (puedes copiar `.env.example`) y añade tus llaves:
+    ```env
+    EXPO_PUBLIC_SUPABASE_URL=tu_url_de_supabase
+    EXPO_PUBLIC_SUPABASE_ANON_KEY=tu_anon_key_de_supabase
+    ```
+    *Sin esto, el Grimorio no podrá conectar con el Consejo de Constructores (Base de Datos).*
+
+2.  **Audio (Opcional)**:
+    Si deseas escuchar la sinfonía del código, consulta la **[Guía de Audio](GUIA_AUDIO.md)** para agregar los archivos de música y efectos de sonido.
+
+## 🛡️ Pruebas de Defensa (Testing)
+
+Antes de desplegar, asegúrate de que tus hechizos sean estables:
+
+```bash
+npm test
+```
+Si ves marcas verdes, estás listo para proceder.
 
 ## 🚀 Despliegue (Build & Release)
 
